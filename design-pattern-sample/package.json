@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@types/googlemaps": "^3.36.6",
     "typescript": "^3.5.2"
   },
   "name": "design-pattern-sample",
