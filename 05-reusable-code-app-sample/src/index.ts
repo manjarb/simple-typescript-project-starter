@@ -2,7 +2,8 @@ import { MatchReader } from './interfaces-method/MatchReader';
 import { CsvFileReader } from './interfaces-method/CsvFileReader';
 import { WinsAnalysis } from './analyzers/WinsAnalysis';
 import { Summary } from './Summary';
-import { ConsoleReport } from './ConsoleReport';
+import { ConsoleReport } from './reportTargets/ConsoleReport';
+import { HtmlReport } from './reportTargets/HtmlReport';
 
 // const reader = new MatchReader('data/football.csv');
 // reader.read();
@@ -13,7 +14,8 @@ matchReader.load();
 
 const summary = new Summary(
   new WinsAnalysis('Man United'),
-  new ConsoleReport()
+  // new ConsoleReport()
+  new HtmlReport()
 );
 
 summary.buildAndPrintReport(matchReader.matches);
