@@ -32,3 +32,6 @@ npm-debug.log
 # dev.js
 .env
 env.json
+
+.cache
+dist
