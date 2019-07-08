@@ -47,5 +47,19 @@ export class User {
       });
   }
 
-  save(): void {}
+  save(): void {
+    const userId = this.get('id');
+    const url = 'http://localhost:3000/users/' + userId;
+    if (userId) {
+      axios.put(url, this.data).then((response: AxiosResponse) => {
+        console.log(response, ' :finish put');
+      });
+    } else {
+      axios
+        .post('http://localhost:3000/users/', this.data)
+        .then((response: AxiosResponse) => {
+          console.log(response, ' :finish post');
+        });
+    }
+  }
 }
