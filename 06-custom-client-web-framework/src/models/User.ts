@@ -3,6 +3,7 @@ import { ApiSync } from './ApiSync';
 import { Attributes } from './Attributes';
 import { AxiosResponse } from 'axios';
 import { Model } from './Model';
+import { Collection } from './Collection';
 
 export interface UserProps {
   id?: number;
@@ -23,5 +24,11 @@ export class User extends Model<UserProps> {
 
   isAdminUser(): boolean {
     return this.get('id') === 1;
+  }
+
+  static buildUserCollection(): Collection<User, UserProps> {
+    return new Collection<User, UserProps>(rootUrl, (json: UserProps) =>
+      User.buildUser(json)
+    );
   }
 }
